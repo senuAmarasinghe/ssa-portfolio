@@ -232,5 +232,5 @@ This project is licensed under the MIT License.
 
 #  Author
 
-Developed by Senuthi Amarasingha
+Developed by Senuthi Amarasinghe
 ```
