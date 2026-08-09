@@ -46,14 +46,18 @@ export default function HeroSection() {
       <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-10 px-6 pb-10 md:px-12 lg:grid-cols-2 lg:gap-16 lg:pb-0">
         <div className="flex flex-col lg:h-full">
           <div className="flex flex-col lg:flex-1 lg:justify-center">
-            <div className="border-t-2 border-charcoal pt-5">
+            <div className="flex items-center gap-3 pt-0">
+              <span
+                aria-hidden="true"
+                className="h-px w-10 bg-charcoal"
+              />
               <p className="text-xs uppercase tracking-[0.25em] text-slategray">
                 Portfolio 24
               </p>
             </div>
 
-            <h1 className="mt-6 font-serif text-4xl leading-[1.05] sm:text-5xl lg:text-6xl xl:text-[5rem]">
-              Crafting <em className="italic">Digital</em> Experiences
+            <h1 className="mt-6 font-serif text-3xl leading-[1.05] sm:text-4xl lg:text-5xl xl:text-[4rem]">
+              Crafting <br/><em className="italic">Digital</em> Experiences
             </h1>
 
             <p className="mt-4 max-w-md text-base leading-relaxed text-slategray">
