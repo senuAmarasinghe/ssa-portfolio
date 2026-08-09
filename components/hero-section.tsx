@@ -4,8 +4,8 @@ const navItems = ["ABOUT", "SKILLS", "EXPERIENCE", "PROJECTS", "EDUCATION"];
 
 export default function HeroSection() {
   return (
-    <section className="min-h-screen bg-offwhite text-charcoal font-sans flex flex-col">
-      <header className="px-6 md:px-12 py-6">
+    <section className="flex min-h-dvh flex-col bg-offwhite font-sans text-charcoal lg:h-dvh lg:overflow-hidden">
+      <header className="shrink-0 px-6 py-5 md:px-12">
         <nav className="mx-auto flex max-w-7xl items-center justify-between">
           <a
             href="#"
@@ -43,32 +43,34 @@ export default function HeroSection() {
         </nav>
       </header>
 
-      <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-16 px-6 pb-16 md:px-12 lg:grid-cols-2 lg:gap-20">
-        <div className="flex flex-col">
-          <div className="border-t-2 border-charcoal pt-6">
-            <p className="text-xs uppercase tracking-[0.25em] text-slategray">
-              Portfolio 24
+      <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-10 px-6 pb-10 md:px-12 lg:grid-cols-2 lg:gap-16 lg:pb-0">
+        <div className="flex flex-col lg:h-full">
+          <div className="flex flex-col lg:flex-1 lg:justify-center">
+            <div className="border-t-2 border-charcoal pt-5">
+              <p className="text-xs uppercase tracking-[0.25em] text-slategray">
+                Portfolio 24
+              </p>
+            </div>
+
+            <h1 className="mt-6 font-serif text-4xl leading-[1.05] sm:text-5xl lg:text-6xl xl:text-[5rem]">
+              Crafting <em className="italic">Digital</em> Experiences
+            </h1>
+
+            <p className="mt-4 max-w-md text-base leading-relaxed text-slategray">
+              I&apos;m a Frontend Engineer crafting clean, responsive, and
+              accessible digital products — turning thoughtful designs into
+              fast, scalable web experiences.
             </p>
+
+            <a
+              href="#projects"
+              className="mt-6 inline-flex w-fit items-center gap-2 border-b border-charcoal pb-1 text-sm uppercase tracking-[0.15em] transition-colors hover:border-slategray hover:text-slategray"
+            >
+              View Selected Work <span aria-hidden="true">&rarr;</span>
+            </a>
           </div>
 
-          <h1 className="mt-8 font-serif text-5xl leading-[1.05] sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
-            Crafting <em className="italic">Digital</em> Experiences
-          </h1>
-
-          <p className="mt-6 max-w-md text-base leading-relaxed text-slategray">
-            I&apos;m a Frontend Engineer crafting clean, responsive, and
-            accessible digital products — turning thoughtful designs into fast,
-            scalable web experiences.
-          </p>
-
-          <a
-            href="#projects"
-            className="mt-8 inline-flex w-fit items-center gap-2 border-b border-charcoal pb-1 text-sm uppercase tracking-[0.15em] transition-colors hover:border-slategray hover:text-slategray"
-          >
-            View Selected Work <span aria-hidden="true">&rarr;</span>
-          </a>
-
-          <div className="mt-14 grid grid-cols-2 gap-6 border-t border-lightgray pt-6">
+          <div className="mt-12 grid grid-cols-2 gap-6 border-t border-lightgray pt-5 lg:mt-auto lg:pb-8">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-slategray">
                 Location
@@ -84,14 +86,14 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="relative lg:justify-self-end">
-          <div className="bg-lightgray p-6 md:p-8">
+        <div className="relative lg:flex lg:h-full lg:items-center lg:justify-self-end">
+          <div className="relative aspect-[3/4] w-full max-w-md bg-lightgray p-5 md:p-7 lg:h-[calc(100dvh-12rem)] lg:w-auto lg:max-w-none">
             <Image
               src="/Adobe Express - file.png"
               alt="Portrait of Senutthi Amarasinghe"
-              width={720}
-              height={960}
-              className="h-auto w-full max-w-md object-cover grayscale"
+              fill
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-cover grayscale"
               priority
             />
           </div>
