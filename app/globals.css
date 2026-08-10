@@ -135,6 +135,15 @@
   }
 }
 
+/* Prevent horizontal scrollbars from intentionally wide sections (e.g. the
+   horizontal projects track) or elements mid-animation (e.g. the hero portrait
+   slide-in). `clip` avoids creating a scroll container, so Lenis and sticky/
+   fixed elements keep working. */
+html,
+body {
+  overflow-x: clip;
+}
+
 /* Lenis smooth scroll */
 html.lenis,
 html.lenis body {
