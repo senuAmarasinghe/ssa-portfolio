@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal, TextReveal } from "@/components/animations";
 
 const navItems = ["ABOUT", "SKILLS", "EXPERIENCE", "PROJECTS", "EDUCATION"];
 
@@ -46,55 +47,73 @@ export default function HeroSection() {
       <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-10 px-6 pb-10 md:px-12 lg:grid-cols-2 lg:gap-16 lg:pb-0">
         <div className="flex flex-col lg:h-full">
           <div className="flex flex-col lg:flex-1 lg:justify-center">
-            <div className="flex items-center gap-3 pt-0">
-              <span
-                aria-hidden="true"
-                className="h-px w-10 bg-charcoal"
-              />
-              <p className="text-xs uppercase tracking-[0.25em] text-slategray">
-                Portfolio 24
-              </p>
-            </div>
+            <Reveal y={24} duration={0.8}>
+              <div className="flex items-center gap-3 pt-0">
+                <span aria-hidden="true" className="h-px w-10 bg-charcoal" />
+                <p className="text-xs uppercase tracking-[0.25em] text-slategray">
+                  Portfolio 24
+                </p>
+              </div>
+            </Reveal>
 
-            <h1 className="mt-6 font-serif text-3xl leading-[1.05] sm:text-4xl lg:text-5xl xl:text-[4rem]">
-              Crafting <br/><em className="italic">Digital</em> Experiences
-            </h1>
-
-            <p className="mt-4 max-w-md text-base leading-relaxed text-slategray">
-              I&apos;m a Frontend Engineer crafting clean, responsive, and
-              accessible digital products — turning thoughtful designs into
-              fast, scalable web experiences.
-            </p>
-
-            <a
-              href="#projects"
-              className="mt-6 inline-flex w-fit items-center gap-2 border-b border-charcoal pb-1 text-sm uppercase tracking-[0.15em] transition-colors hover:border-slategray hover:text-slategray"
+            <TextReveal
+              as="h1"
+              type="lines"
+              duration={1}
+              stagger={0.12}
+              className="mt-6 font-serif text-3xl leading-[1.05] sm:text-4xl lg:text-5xl xl:text-[4rem]"
             >
-              View Selected Work <span aria-hidden="true">&rarr;</span>
-            </a>
+              Crafting <br />
+              <em className="italic">Digital</em> Experiences
+            </TextReveal>
+
+            <Reveal y={32} delay={0.35} duration={0.9}>
+              <p className="mt-4 max-w-md text-base leading-relaxed text-slategray">
+                I&apos;m a Frontend Engineer crafting clean, responsive, and
+                accessible digital products — turning thoughtful designs into
+                fast, scalable web experiences.
+              </p>
+            </Reveal>
+
+            <Reveal y={24} delay={0.5} duration={0.9}>
+              <a
+                href="#projects"
+                className="mt-6 inline-flex w-fit items-center gap-2 border-b border-charcoal pb-1 text-sm uppercase tracking-[0.15em] transition-colors hover:border-slategray hover:text-slategray"
+              >
+                View Selected Work <span aria-hidden="true">&rarr;</span>
+              </a>
+            </Reveal>
           </div>
 
-          <div className="mt-12 grid grid-cols-2 gap-6 border-t border-lightgray pt-5 lg:mt-auto lg:pb-8">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-slategray">
-                Location
-              </p>
-              <p className="mt-1 text-sm">New York, NY</p>
+          <Reveal y={20} delay={0.65} duration={0.9} className="lg:mt-auto">
+            <div className="mt-12 grid grid-cols-2 gap-6 border-t border-lightgray pt-5 lg:mt-0 lg:pb-8">
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-slategray">
+                  Location
+                </p>
+                <p className="mt-1 text-sm">New York, NY</p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-slategray">
+                  Status
+                </p>
+                <p className="mt-1 text-sm">Available for Freelance</p>
+              </div>
             </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-slategray">
-                Status
-              </p>
-              <p className="mt-1 text-sm">Available for Freelance</p>
-            </div>
-          </div>
+          </Reveal>
         </div>
 
-        <div className="relative lg:flex lg:h-full lg:items-center lg:justify-self-end">
-          <div className="relative aspect-[3/4] w-full max-w-md bg-lightgray p-5 md:p-7 lg:h-[calc(100dvh-12rem)] lg:w-auto lg:max-w-none">
+        <Reveal
+          as="div"
+          x={48}
+          duration={1}
+          delay={0.3}
+          className="relative lg:flex lg:h-full lg:items-center lg:justify-self-end"
+        >
+          <div className="relative aspect-3/4 w-full max-w-md bg-lightgray p-5 md:p-7 lg:h-[calc(100dvh-12rem)] lg:w-auto lg:max-w-none">
             <Image
               src="/Adobe Express - file.png"
-              alt="Portrait of Senutthi Amarasinghe"
+              alt="Portrait of Senuthi Amarasinghe"
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
               className="object-cover grayscale"
@@ -107,7 +126,7 @@ export default function HeroSection() {
               *
             </span>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
