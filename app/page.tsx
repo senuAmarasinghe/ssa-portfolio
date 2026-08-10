@@ -1,20 +1,9 @@
 import HeroSection from "@/components/hero-section";
 import AboutSection, { type Stat } from "@/components/about-section";
 import SkillsSection from "@/components/skills-section";
-import {
-  Counter,
-  HorizontalScroll,
-  PinnedSection,
-  Reveal,
-  TextReveal,
-} from "@/components/animations";
-
-const projects = [
-  { title: "Project One", meta: "Web Experience" },
-  { title: "Project Two", meta: "Product Design" },
-  { title: "Project Three", meta: "Mobile App" },
-  { title: "Project Four", meta: "Design System" },
-];
+import ExperienceSection from "@/components/experience-section";
+import ProjectsSection from "@/components/projects-section";
+import { Counter, TextReveal } from "@/components/animations";
 
 const stats: Stat[] = [
   { to: 6, suffix: "+", label: "Years of experience" },
@@ -32,52 +21,9 @@ export default function Home() {
 
       <SkillsSection />
 
-      {/* EXPERIENCE */}
-      <section id="experience" className="bg-white">
-        <PinnedSection end="+=60%" className="flex h-dvh items-center justify-center px-6 md:px-12">
-          <div className="max-w-3xl text-center">
-            <TextReveal
-              as="h2"
-              type="chars"
-              stagger={0.06}
-              className="font-anton text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-6"
-            >
-              EXPERIENCE
-            </TextReveal>
-            <Reveal y={24} delay={0.3}>
-              <p className="text-base leading-relaxed text-slategray">
-                This section stays pinned while the page scrolls past — a
-                storytelling pattern borrowed from the Kononenko Architectural
-                Bureau.
-              </p>
-            </Reveal>
-          </div>
-        </PinnedSection>
-      </section>
+      <ExperienceSection />
 
-      {/* PROJECTS */}
-      <section id="projects" className="bg-[#f8f8f8]">
-        <HorizontalScroll>
-          {projects.map((project, index) => (
-            <Reveal key={project.title} y={40} delay={index * 0.05} className="h-[70vh]">
-              <article className="flex h-full w-[85vw] shrink-0 flex-col justify-between border border-lightgray bg-white p-10 md:w-[60vw]">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-slategray">
-                    {String(index + 1).padStart(2, "0")} / {project.meta}
-                  </p>
-                  <h3 className="mt-6 font-anton text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
-                    {project.title}
-                  </h3>
-                </div>
-                <p className="mt-8 text-sm leading-relaxed text-slategray">
-                  Placeholder card for the horizontal scroll demo. Each card
-                  slides across while the section is pinned.
-                </p>
-              </article>
-            </Reveal>
-          ))}
-        </HorizontalScroll>
-      </section>
+      <ProjectsSection />
 
       {/* EDUCATION */}
       <section id="education" className="min-h-screen bg-white">
