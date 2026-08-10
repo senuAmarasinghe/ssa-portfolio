@@ -4,6 +4,7 @@ import SkillsSection from "@/components/skills-section";
 import ExperienceSection from "@/components/experience-section";
 import ProjectsSection from "@/components/projects-section";
 import EducationSection from "@/components/education-section";
+import ContactSection from "@/components/contact-section";
 
 const stats: Stat[] = [
   { to: 6, suffix: "+", label: "Years of experience" },
@@ -26,6 +27,8 @@ export default function Home() {
       <ProjectsSection />
 
       <EducationSection />
+
+      <ContactSection />
     </div>
   );
 }

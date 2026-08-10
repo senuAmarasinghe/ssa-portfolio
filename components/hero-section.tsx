@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { LetterReveal, Reveal } from "@/components/animations";
 
-const navItems = ["ABOUT", "SKILLS", "EXPERIENCE", "PROJECTS", "EDUCATION"];
+const navItems = ["ABOUT", "SKILLS", "EXPERIENCE", "PROJECTS", "EDUCATION", "CONTACT"];
 
 export default function HeroSection() {
   return (
