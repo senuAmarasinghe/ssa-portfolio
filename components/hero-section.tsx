@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Reveal, TextReveal } from "@/components/animations";
+import { LetterReveal, Reveal } from "@/components/animations";
 
 const navItems = ["ABOUT", "SKILLS", "EXPERIENCE", "PROJECTS", "EDUCATION"];
 
@@ -34,7 +34,7 @@ export default function HeroSection() {
             className="block size-10 overflow-hidden rounded-full bg-lightgray"
           >
             <Image
-              src="/Adobe Express - file.png"
+              src="/background_portfolio.jpeg"
               alt=""
               width={40}
               height={40}
@@ -47,7 +47,7 @@ export default function HeroSection() {
       <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-10 px-6 pb-10 md:px-12 lg:grid-cols-2 lg:gap-16 lg:pb-0">
         <div className="flex flex-col lg:h-full">
           <div className="flex flex-col lg:flex-1 lg:justify-center">
-            <Reveal y={24} duration={0.8}>
+            <Reveal y={24} duration={0.8} deferToPreloader>
               <div className="flex items-center gap-3 pt-0">
                 <span aria-hidden="true" className="h-px w-10 bg-charcoal" />
                 <p className="text-xs uppercase tracking-[0.25em] text-slategray">
@@ -56,18 +56,18 @@ export default function HeroSection() {
               </div>
             </Reveal>
 
-            <TextReveal
+            <LetterReveal
               as="h1"
-              type="lines"
-              duration={1}
-              stagger={0.12}
+              stagger={0.04}
+              duration={0.85}
+              delay={0.15}
               className="mt-6 font-serif text-3xl leading-[1.05] sm:text-4xl lg:text-5xl xl:text-[4rem]"
             >
               Crafting <br />
               <em className="italic">Digital</em> Experiences
-            </TextReveal>
+            </LetterReveal>
 
-            <Reveal y={32} delay={0.35} duration={0.9}>
+            <Reveal y={32} delay={0.35} duration={0.9} deferToPreloader>
               <p className="mt-4 max-w-md text-base leading-relaxed text-slategray">
                 I&apos;m a Frontend Engineer crafting clean, responsive, and
                 accessible digital products — turning thoughtful designs into
@@ -75,7 +75,7 @@ export default function HeroSection() {
               </p>
             </Reveal>
 
-            <Reveal y={24} delay={0.5} duration={0.9}>
+            <Reveal y={24} delay={0.5} duration={0.9} deferToPreloader>
               <a
                 href="#projects"
                 className="mt-6 inline-flex w-fit items-center gap-2 border-b border-charcoal pb-1 text-sm uppercase tracking-[0.15em] transition-colors hover:border-slategray hover:text-slategray"
@@ -85,7 +85,7 @@ export default function HeroSection() {
             </Reveal>
           </div>
 
-          <Reveal y={20} delay={0.65} duration={0.9} className="lg:mt-auto">
+          <Reveal y={20} delay={0.65} duration={0.9} deferToPreloader className="lg:mt-auto">
             <div className="mt-12 grid grid-cols-2 gap-6 border-t border-lightgray pt-5 lg:mt-0 lg:pb-8">
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-slategray">
@@ -108,6 +108,7 @@ export default function HeroSection() {
           x={48}
           duration={1}
           delay={0.3}
+          deferToPreloader
           className="relative lg:flex lg:h-full lg:items-center lg:justify-self-end"
         >
           <div className="relative aspect-3/4 w-full max-w-md bg-lightgray p-5 md:p-7 lg:h-[calc(100dvh-12rem)] lg:w-auto lg:max-w-none">

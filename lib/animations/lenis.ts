@@ -42,3 +42,17 @@ export function scrollTo(
     el?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 }
+
+/**
+ * Locks/unlocks page scrolling while the intro preloader is on screen. Keeps
+ * both native scroll and Lenis disabled so content can't move behind the
+ * overlay, then restores both when the curtain lifts.
+ */
+export function lockScroll(locked: boolean): void {
+  document.body.style.overflow = locked ? "hidden" : "";
+  if (locked) {
+    lenis?.stop();
+  } else {
+    lenis?.start();
+  }
+}

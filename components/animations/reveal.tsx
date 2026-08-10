@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap, ScrollTrigger } from "@/lib/animations/gsap";
+import { preloaderRevealed } from "@/lib/animations/preloader";
 import { isElementInViewport, prefersReducedMotion } from "@/lib/animations/utils";
 
 interface RevealProps {
@@ -20,6 +21,8 @@ interface RevealProps {
   once?: boolean;
   /** ScrollTrigger start position (e.g. "top 85%"). */
   start?: string;
+  /** When the element is in view on load, wait for the intro preloader to reveal. */
+  deferToPreloader?: boolean;
   className?: string;
   children: React.ReactNode;
 }
@@ -27,7 +30,8 @@ interface RevealProps {
 /**
  * Fades/slides an element in when it scrolls into the viewport. Content is
  * server-rendered visible, so it degrades gracefully without JS, and is
- * skipped entirely for users who prefer reduced motion.
+ * skipped entirely for users who prefer reduced motion. Set
+ * `deferToPreloader` to hold in-view elements until the intro curtain lifts.
  */
 export default function Reveal({
   as: Tag = "div",
@@ -37,6 +41,7 @@ export default function Reveal({
   delay = 0,
   once = true,
   start = "top 85%",
+  deferToPreloader = false,
   className,
   children,
 }: RevealProps) {
@@ -65,7 +70,13 @@ export default function Reveal({
       });
 
       if (isElementInViewport(el)) {
-        tween.play();
+        if (deferToPreloader) {
+          preloaderRevealed().then(() => {
+            if (el.isConnected) tween.play();
+          });
+        } else {
+          tween.play();
+        }
         return;
       }
 

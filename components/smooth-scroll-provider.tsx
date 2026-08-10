@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger } from "@/lib/animations/gsap";
 import { destroyLenis, getLenis, setLenis } from "@/lib/animations/lenis";
+import { isPreloaderActive } from "@/lib/animations/preloader";
 
 interface SmoothScrollProviderProps {
   children: ReactNode;
@@ -28,6 +29,7 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
     });
 
     setLenis(lenis);
+    if (isPreloaderActive()) lenis.stop();
 
     lenis.on("scroll", ScrollTrigger.update);
 
