@@ -87,7 +87,7 @@ export default function Preloader() {
     <div
       ref={ref}
       aria-hidden="true"
-      className="preloader fixed inset-0 z-[9999] flex items-center justify-center bg-charcoal text-offwhite"
+      className="preloader fixed inset-0 z-9999 flex items-center justify-center bg-charcoal text-offwhite"
     >
       <div className="px-6 text-center">
         <p className="preloader-meta text-[0.65rem] uppercase tracking-[0.4em] text-offwhite/60">

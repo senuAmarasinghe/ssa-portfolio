@@ -1,9 +1,8 @@
-import Image from "next/image";
 import HeroSection from "@/components/hero-section";
+import AboutSection, { type Stat } from "@/components/about-section";
 import {
   Counter,
   HorizontalScroll,
-  Parallax,
   PinnedSection,
   Reveal,
   TextReveal,
@@ -18,14 +17,6 @@ const projects = [
   { title: "Project Four", meta: "Design System" },
 ];
 
-interface Stat {
-  to: number;
-  label: string;
-  suffix?: string;
-  prefix?: string;
-  decimals?: number;
-}
-
 const stats: Stat[] = [
   { to: 6, suffix: "+", label: "Years of experience" },
   { to: 20, suffix: "+", label: "Projects shipped" },
@@ -38,40 +29,17 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <HeroSection />
 
-      {/* ABOUT */}
-      <section id="about" className="bg-white p-8">
-        <div className="container mx-auto py-12">
-          <TextReveal as="h2" type="chars" stagger={0.04} className="font-anton text-6xl mb-8">
-            ABOUT
-          </TextReveal>
-          <Reveal y={32} delay={0.15}>
-            <p className="max-w-2xl text-lg">
-              A frontend engineer focused on clean, responsive, and accessible
-              digital products — turning thoughtful designs into fast, scalable
-              web experiences.
-            </p>
-          </Reveal>
-        </div>
-
-        <Reveal y={48}>
-          <div className="relative h-[70vh] w-full overflow-hidden bg-charcoal">
-            <Parallax speed={0.2} className="absolute -top-[40%] left-0 h-[180%] w-full">
-              <Image
-                src="/background_portfolio.jpeg"
-                alt=""
-                fill
-                sizes="100vw"
-                className="object-cover"
-              />
-            </Parallax>
-          </div>
-        </Reveal>
-      </section>
+      <AboutSection stats={stats} />
 
       {/* SKILLS */}
-      <section id="skills" className="min-h-screen bg-[#f8f8f8] p-8">
-        <div className="container mx-auto py-24">
-          <TextReveal as="h2" type="chars" stagger={0.04} className="font-anton text-6xl mb-8">
+      <section id="skills" className="min-h-screen bg-[#f8f8f8]">
+        <div className="mx-auto w-full max-w-7xl px-6 py-24 md:px-12">
+          <TextReveal
+            as="h2"
+            type="chars"
+            stagger={0.04}
+            className="font-anton text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-8"
+          >
             SKILLS
           </TextReveal>
           <div className="flex flex-wrap gap-3">
@@ -91,13 +59,18 @@ export default function Home() {
 
       {/* EXPERIENCE */}
       <section id="experience" className="bg-white">
-        <PinnedSection end="+=60%" className="flex h-dvh items-center justify-center px-8">
+        <PinnedSection end="+=60%" className="flex h-dvh items-center justify-center px-6 md:px-12">
           <div className="max-w-3xl text-center">
-            <TextReveal as="h2" type="chars" stagger={0.06} className="font-anton text-6xl mb-6">
+            <TextReveal
+              as="h2"
+              type="chars"
+              stagger={0.06}
+              className="font-anton text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-6"
+            >
               EXPERIENCE
             </TextReveal>
             <Reveal y={24} delay={0.3}>
-              <p className="text-lg leading-relaxed text-slategray">
+              <p className="text-base leading-relaxed text-slategray">
                 This section stays pinned while the page scrolls past — a
                 storytelling pattern borrowed from the Kononenko Architectural
                 Bureau.
@@ -117,7 +90,9 @@ export default function Home() {
                   <p className="text-xs uppercase tracking-[0.2em] text-slategray">
                     {String(index + 1).padStart(2, "0")} / {project.meta}
                   </p>
-                  <h3 className="mt-6 font-anton text-4xl md:text-6xl">{project.title}</h3>
+                  <h3 className="mt-6 font-anton text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
+                    {project.title}
+                  </h3>
                 </div>
                 <p className="mt-8 text-sm leading-relaxed text-slategray">
                   Placeholder card for the horizontal scroll demo. Each card
@@ -130,9 +105,14 @@ export default function Home() {
       </section>
 
       {/* EDUCATION */}
-      <section id="education" className="min-h-screen bg-white p-8">
-        <div className="container mx-auto py-24">
-          <TextReveal as="h2" type="chars" stagger={0.04} className="font-anton text-6xl mb-8">
+      <section id="education" className="min-h-screen bg-white">
+        <div className="mx-auto w-full max-w-7xl px-6 py-24 md:px-12">
+          <TextReveal
+            as="h2"
+            type="chars"
+            stagger={0.04}
+            className="font-anton text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-8"
+          >
             EDUCATION
           </TextReveal>
           <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
