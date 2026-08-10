@@ -37,6 +37,13 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
     gsap.ticker.add(onTicker);
     gsap.ticker.lagSmoothing(0);
 
+    const refreshScroll = () => ScrollTrigger.refresh();
+    const refreshTimer = setTimeout(refreshScroll, 100);
+    const fontsReady = document.fonts?.ready;
+    if (fontsReady) {
+      fontsReady.then(refreshScroll).catch(() => {});
+    }
+
     const onAnchorClick = (event: MouseEvent) => {
       if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
         return;
@@ -54,6 +61,7 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
     document.addEventListener("click", onAnchorClick);
 
     return () => {
+      clearTimeout(refreshTimer);
       document.removeEventListener("click", onAnchorClick);
       gsap.ticker.remove(onTicker);
       destroyLenis();

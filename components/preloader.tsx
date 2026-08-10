@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
-import { gsap } from "@/lib/animations/gsap";
+import { gsap, ScrollTrigger } from "@/lib/animations/gsap";
 import { prefersReducedMotion } from "@/lib/animations/utils";
 import { lockScroll } from "@/lib/animations/lenis";
 import { activatePreloader, signalPreloaderReveal } from "@/lib/animations/preloader";
@@ -28,15 +28,19 @@ export default function Preloader() {
       activatePreloader();
       lockScroll(true);
 
-      const safety = setTimeout(() => {
+      const releaseScroll = () => {
         signalPreloaderReveal();
         lockScroll(false);
+        ScrollTrigger.refresh();
+      };
+
+      const safety = setTimeout(() => {
+        releaseScroll();
         setHidden(true);
       }, 4500);
 
       if (prefersReducedMotion()) {
-        signalPreloaderReveal();
-        lockScroll(false);
+        releaseScroll();
         setHidden(true);
         return () => clearTimeout(safety);
       }
@@ -67,10 +71,7 @@ export default function Preloader() {
             yPercent: -100,
             duration: 1,
             ease: "power4.inOut",
-            onStart: () => {
-              signalPreloaderReveal();
-              lockScroll(false);
-            },
+            onStart: releaseScroll,
           },
           "+=0.3",
         )
