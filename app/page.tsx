@@ -1,5 +1,6 @@
 import HeroSection from "@/components/hero-section";
 import AboutSection, { type Stat } from "@/components/about-section";
+import SkillsSection from "@/components/skills-section";
 import {
   Counter,
   HorizontalScroll,
@@ -7,8 +8,6 @@ import {
   Reveal,
   TextReveal,
 } from "@/components/animations";
-
-const skills = ["TypeScript", "React", "Next.js", "Tailwind CSS", "GSAP", "Node.js"];
 
 const projects = [
   { title: "Project One", meta: "Web Experience" },
@@ -31,31 +30,7 @@ export default function Home() {
 
       <AboutSection stats={stats} />
 
-      {/* SKILLS */}
-      <section id="skills" className="min-h-screen bg-[#f8f8f8]">
-        <div className="mx-auto w-full max-w-7xl px-6 py-24 md:px-12">
-          <TextReveal
-            as="h2"
-            type="chars"
-            stagger={0.04}
-            className="font-anton text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-8"
-          >
-            SKILLS
-          </TextReveal>
-          <div className="flex flex-wrap gap-3">
-            {skills.map((skill, index) => (
-              <Reveal
-                key={skill}
-                y={24}
-                delay={index * 0.08}
-                className="border border-charcoal/20 bg-white px-5 py-3 text-sm uppercase tracking-[0.15em]"
-              >
-                {skill}
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <SkillsSection />
 
       {/* EXPERIENCE */}
       <section id="experience" className="bg-white">
