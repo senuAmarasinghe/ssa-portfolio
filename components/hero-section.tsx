@@ -34,7 +34,7 @@ export default function HeroSection() {
             className="block size-10 overflow-hidden rounded-full bg-lightgray"
           >
             <Image
-              src="/background_portfolio.jpeg"
+              src="/Adobe Express - file.png"
               alt=""
               width={40}
               height={40}
@@ -111,13 +111,13 @@ export default function HeroSection() {
           deferToPreloader
           className="relative lg:flex lg:h-full lg:items-center lg:justify-self-end"
         >
-          <div className="relative aspect-3/4 w-full max-w-md bg-lightgray p-5 md:p-7 lg:h-[calc(100dvh-12rem)] lg:w-auto lg:max-w-none">
+          <div className="group relative aspect-3/4 w-full max-w-md overflow-hidden bg-lightgray p-5 md:p-7 lg:h-[calc(100dvh-12rem)] lg:w-auto lg:max-w-none">
             <Image
               src="/Adobe Express - file.png"
               alt="Portrait of Senuthi Amarasinghe"
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover grayscale"
+              className="object-cover grayscale transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0"
               priority
             />
           </div>

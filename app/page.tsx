@@ -57,11 +57,11 @@ export default function Home() {
           <div className="relative h-[70vh] w-full overflow-hidden bg-charcoal">
             <Parallax speed={0.2} className="absolute -top-[40%] left-0 h-[180%] w-full">
               <Image
-                src="/Adobe Express - file.png"
+                src="/background_portfolio.jpeg"
                 alt=""
                 fill
                 sizes="100vw"
-                className="object-cover grayscale"
+                className="object-cover"
               />
             </Parallax>
           </div>
