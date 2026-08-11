@@ -1,4 +1,5 @@
 import { HorizontalScroll, Reveal, TextReveal } from "@/components/animations";
+import { cn } from "@/lib/utils";
 
 interface Project {
   title: string;
@@ -7,6 +8,7 @@ interface Project {
   status: string;
   description: string;
   tech: string[];
+  image?: string;
 }
 
 const projects: Project[] = [
@@ -18,6 +20,7 @@ const projects: Project[] = [
     description:
       "Transformed manual operations into an automated digital platform serving 25+ employees across workshop, paint shop, tire shop, and service station operations.",
     tech: ["React", "TypeScript", "SpringBoot", "Java", "MySQL", "JWT", "RESTful APIs", "Azure"],
+    image: "/project1.jpg",
   },
   {
     title: "Personal Finance Tracker",
@@ -27,6 +30,7 @@ const projects: Project[] = [
     description:
       "A native Android application for managing personal finances with intuitive expense tracking, budget planning, and financial goal setting.",
     tech: ["Kotlin", "Android SDK", "Data Persistence", "UI/UX Design", "Data Visualization"],
+    image: "/project2.png",
   },
   {
     title: "Mobile Pottery Studio",
@@ -36,6 +40,7 @@ const projects: Project[] = [
     description:
       "A mobile application for pottery enthusiasts featuring class booking, instructor profiles, gallery showcase, and progress tracking.",
     tech: ["Figma", "Kotlin", "Android Studio", "XML", "UI/UX Principles"],
+    image: "/project3.png",
   },
   {
     title: "Online Banking System",
@@ -45,6 +50,7 @@ const projects: Project[] = [
     description:
       "A full-featured online banking system with account management, transaction processing, loan applications, and administrative dashboards.",
     tech: ["Java", "MySQL", "Tomcat Server", "JDBC", "MVC", "JSP"],
+    image: "/project4.png",
   },
   {
     title: "Portfolio Website",
@@ -53,7 +59,8 @@ const projects: Project[] = [
     status: "Live",
     description:
       "A responsive personal portfolio showcasing projects, skills, and professional experience with smooth animations and optimized performance.",
-    tech: ["Next.js", "Tailwind", "Framer Motion", "Vercel"],
+    tech: ["Next.js", "Tailwind", "Lenis", "GSAP", "Vercel"],
+    image: "/project5.png",
   },
   {
     title: "Siyane Group (pvt) ltd",
@@ -63,6 +70,7 @@ const projects: Project[] = [
     description:
       "A responsive business profile showcasing products and enhancing customer engagement, with smooth animations and a contact form.",
     tech: ["HTML", "CSS", "PHP", "JavaScript"],
+    image: "/project6.jpg",
   },
 ];
 
@@ -87,41 +95,87 @@ export default function ProjectsSection() {
       </div>
 
       <HorizontalScroll>
-        {projects.map((project, index) => (
-          <Reveal key={project.title} y={40} delay={index * 0.05} className="h-[70vh]">
-            <article className="flex h-full w-[85vw] shrink-0 flex-col justify-between border border-lightgray bg-white p-10 md:w-[60vw] lg:w-[50vw]">
-              <div>
-                <div className="flex items-start justify-between gap-4">
-                  <p className="text-xs uppercase tracking-[0.2em] text-slategray">
-                    {project.period}
-                  </p>
-                  <span className="shrink-0 border border-charcoal/20 px-3 py-1 text-xs uppercase tracking-[0.15em]">
-                    {project.status}
-                  </span>
-                </div>
-                <h3 className="mt-6 font-anton text-3xl sm:text-4xl lg:text-5xl">
-                  {project.title}
-                </h3>
-                <p className="mt-2 text-sm uppercase tracking-[0.15em] text-slategray">
-                  {project.role}
-                </p>
-                <p className="mt-5 text-sm leading-relaxed text-slategray">
-                  {project.description}
-                </p>
-              </div>
-              <div className="mt-8 flex flex-wrap gap-2">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="border border-charcoal/20 px-3 py-1.5 text-xs uppercase tracking-[0.1em]"
+        {projects.map((project, index) => {
+          const dark = Boolean(project.image);
+          return (
+            <Reveal key={project.title} y={40} delay={index * 0.05} className="h-[70vh]">
+              <article
+                className={cn(
+                  "relative flex h-full w-[85vw] shrink-0 flex-col justify-between overflow-hidden border border-lightgray p-10 md:w-[60vw] lg:w-[50vw]",
+                  dark ? "text-white" : "bg-white",
+                )}
+                style={
+                  project.image
+                    ? {
+                        backgroundImage: `url(${project.image})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }
+                    : undefined
+                }
+              >
+                {project.image && (
+                  <div
+                    className="absolute inset-0 bg-linear-to-b from-charcoal/80 via-charcoal/60 to-charcoal/90"
+                    aria-hidden
+                  />
+                )}
+                <div className="relative">
+                  <div className="flex items-start justify-between gap-4">
+                    <p
+                      className={cn(
+                        "text-xs uppercase tracking-[0.2em]",
+                      dark ? "text-white/90" : "text-slategray",
+                    )}
                   >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </article>
-          </Reveal>
-        ))}
+                    {project.period}
+                    </p>
+                    <span
+                      className={cn(
+                        "shrink-0 border px-3 py-1 text-xs uppercase tracking-[0.15em]",
+                        dark ? "border-white/30" : "border-charcoal/20",
+                      )}
+                    >
+                      {project.status}
+                    </span>
+                  </div>
+                  <h3 className="mt-6 font-anton text-3xl sm:text-4xl lg:text-5xl">
+                    {project.title}
+                  </h3>
+                  <p
+                    className={cn(
+                      "mt-2 text-sm uppercase tracking-[0.15em]",
+                      dark ? "text-white/90" : "text-slategray",
+                    )}
+                  >
+                    {project.role}
+                  </p>
+                  <p
+                    className={cn(
+                      "mt-5 text-sm leading-relaxed",
+                      dark ? "text-white/90" : "text-slategray",
+                    )}
+                  >
+                    {project.description}
+                  </p>
+                </div>
+                <div className="relative mt-8 flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className={cn(
+                        "border px-3 py-1.5 text-xs uppercase tracking-widest",
+                        dark ? "border-white/30" : "border-charcoal/20",
+                      )}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            </Reveal>
+          );
+        })}
       </HorizontalScroll>
     </section>
   );
