@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Anton, Libre_Caslon_Text, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
+import SideNav from "@/components/side-nav";
 import Preloader from "@/components/preloader";
 
 const geistSans = Geist({
@@ -50,6 +51,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <Preloader />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <SideNav />
         <noscript>
           <style>{`.preloader{display:none!important}`}</style>
         </noscript>
