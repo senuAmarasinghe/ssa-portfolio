@@ -110,9 +110,9 @@ export default function AboutSection({ stats }: AboutSectionProps) {
 
       <Reveal y={48}>
         <div className="relative h-[70vh] w-full overflow-hidden bg-charcoal">
-          <Parallax speed={0.2} className="absolute -top-[40%] left-0 h-[180%] w-full">
+          <Parallax speed={0.2} className="absolute top-[-40%] left-0 h-[180%] w-full">
             <Image
-              src="/background_portfolio.jpeg"
+              src="/background_portfolio2.png"
               alt=""
               fill
               sizes="100vw"
