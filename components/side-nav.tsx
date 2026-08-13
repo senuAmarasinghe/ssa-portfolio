@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Briefcase,
   CalendarDays,
@@ -11,6 +11,7 @@ import {
   User,
   type LucideIcon,
 } from "lucide-react";
+import { gsap } from "@/lib/animations/gsap";
 import { cn } from "@/lib/utils";
 
 interface NavItem {
@@ -34,6 +35,9 @@ const HEADER_OFFSET = 100;
 export default function SideNav() {
   const [visible, setVisible] = useState(false);
   const [active, setActive] = useState("");
+  const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const indicatorRef = useRef<HTMLSpanElement>(null);
+  const initializedRef = useRef(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -60,17 +64,67 @@ export default function SideNav() {
     };
   }, []);
 
+  useEffect(() => {
+    const el = indicatorRef.current;
+    if (!el) return;
+
+    const index = navItems.findIndex((item) => item.id === active);
+    const item = index !== -1 ? itemRefs.current[index] : null;
+    if (!item) {
+      gsap.to(el, { opacity: 0, duration: 0.3, ease: "power2.out" });
+      return;
+    }
+
+    const y = item.offsetTop;
+    if (!initializedRef.current) {
+      initializedRef.current = true;
+      gsap.set(el, { y, opacity: 1 });
+    } else {
+      gsap.to(el, {
+        y,
+        opacity: 1,
+        duration: 0.9,
+        ease: "elastic.out(1, 0.45)",
+      });
+    }
+  }, [active]);
+
+  useEffect(() => {
+    const onResize = () => {
+      const el = indicatorRef.current;
+      if (!el) return;
+      const index = navItems.findIndex((item) => item.id === active);
+      const item = index !== -1 ? itemRefs.current[index] : null;
+      if (item) gsap.set(el, { y: item.offsetTop });
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [active]);
+
   return (
     <nav
       aria-label="Section navigation"
       className={cn(
-        "fixed left-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-start gap-2 transition-opacity duration-300 md:flex",
+        "fixed left-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-start gap-2 pl-3 transition-opacity duration-500 md:flex",
         visible ? "opacity-100" : "pointer-events-none opacity-0",
       )}
     >
-      {navItems.map(({ id, label, icon: Icon }) => (
+      <span
+        aria-hidden
+        className="absolute inset-y-0 left-0 w-[3px] bg-lightgray"
+      />
+      <span
+        aria-hidden
+        ref={indicatorRef}
+        className="absolute left-0 top-0 h-11 w-[3px] bg-charcoal opacity-0 will-change-transform"
+      />
+
+      {navItems.map(({ id, label, icon: Icon }, index) => (
         <a
           key={id}
+          ref={(el) => {
+            itemRefs.current[index] = el;
+          }}
           href={`#${id}`}
           aria-label={`Go to ${label}`}
           aria-current={active === id ? "true" : undefined}
@@ -78,9 +132,9 @@ export default function SideNav() {
         >
           <span
             className={cn(
-              "flex size-11 shrink-0 items-center justify-center border bg-white/85 shadow-sm backdrop-blur transition-colors duration-300",
+              "flex size-11 shrink-0 items-center justify-center border bg-white/85 shadow-sm backdrop-blur transition-all duration-300 ease-out",
               active === id
-                ? "border-charcoal bg-charcoal text-white"
+                ? "border-charcoal bg-charcoal text-white shadow-lg shadow-charcoal/20"
                 : "border-lightgray text-slategray group-hover:border-charcoal/40 group-hover:text-charcoal",
             )}
           >
@@ -89,7 +143,7 @@ export default function SideNav() {
           <span className="pointer-events-none -ml-px max-w-0 overflow-hidden border border-l-0 border-lightgray bg-white/85 shadow-sm backdrop-blur transition-all duration-300 group-hover:max-w-44 group-hover:opacity-100">
             <span
               className={cn(
-                "block whitespace-nowrap px-3 py-2.5 text-xs uppercase tracking-[0.15em]",
+                "block whitespace-nowrap px-3 py-2.5 text-xs uppercase tracking-[0.15em] transition-colors duration-300",
                 active === id ? "text-charcoal" : "text-slategray",
               )}
             >
