@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { Geist, Geist_Mono, Anton, Libre_Caslon_Text, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import SideNav from "@/components/side-nav";
 import Preloader from "@/components/preloader";
+
+const redound = localFont({
+  src: "./fonts/redound-regular.ttf",
+  variable: "--font-redound",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,7 +52,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${anton.variable} ${libreCaslonText.variable} ${hankenGrotesk.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${anton.variable} ${libreCaslonText.variable} ${hankenGrotesk.variable} ${redound.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Preloader />

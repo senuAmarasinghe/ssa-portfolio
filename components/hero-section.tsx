@@ -1,57 +1,17 @@
 import Image from "next/image";
 import { LetterReveal, Reveal } from "@/components/animations";
 
-const navItems = ["ABOUT", "SKILLS", "EXPERIENCE", "PROJECTS", "EDUCATION", "CONTACT"];
-
 export default function HeroSection() {
   return (
     <section className="flex min-h-dvh flex-col bg-offwhite font-sans text-charcoal lg:h-dvh lg:overflow-hidden">
-      <header className="shrink-0 px-6 py-5 md:px-12">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between">
-          <a
-            href="#"
-            className="font-serif text-lg font-bold tracking-wide md:text-xl"
-          >
-            SENUTHI AMARASINGHE
-          </a>
-
-          <ul className="hidden items-center gap-8 md:flex">
-            {navItems.map((item) => (
-              <li key={item}>
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  className="text-xs uppercase tracking-[0.2em] text-charcoal transition-colors hover:text-slategray"
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          <a
-            href="#about"
-            aria-label="Profile"
-            className="block size-10 overflow-hidden rounded-full bg-lightgray"
-          >
-            <Image
-              src="/Adobe Express - file.png"
-              alt=""
-              width={40}
-              height={40}
-              className="size-full object-cover grayscale"
-            />
-          </a>
-        </nav>
-      </header>
-
-      <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-10 px-6 pb-10 md:px-12 lg:grid-cols-2 lg:gap-16 lg:pb-0">
+      <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-12 px-6 pb-10 md:px-12 lg:grid-cols-[3fr_2fr] lg:gap-16 lg:pb-0">
         <div className="flex flex-col lg:h-full">
           <div className="flex flex-col lg:flex-1 lg:justify-center">
             <Reveal y={24} duration={0.8} deferToPreloader>
               <div className="flex items-center gap-3 pt-0">
                 <span aria-hidden="true" className="h-px w-10 bg-charcoal" />
                 <p className="text-xs uppercase tracking-[0.25em] text-slategray">
-                  Portfolio 24
+                  Portfolio 26
                 </p>
               </div>
             </Reveal>
@@ -61,17 +21,21 @@ export default function HeroSection() {
               stagger={0.04}
               duration={0.85}
               delay={0.15}
-              className="mt-6 font-serif text-3xl leading-[1.05] sm:text-4xl lg:text-5xl xl:text-[4rem]"
+              className="mt-6 font-redound text-[clamp(2.25rem,5.5vw,5.5rem)] uppercase leading-[0.95] tracking-tight"
             >
-              Crafting <br />
-              <em className="italic">Digital</em> Experiences
+              Senuthi <br />
+              Amarasinghe
             </LetterReveal>
+
+            <p className="mt-6 text-xs uppercase tracking-[0.25em] text-slategray">
+              Software Engineering Undergraduate &amp; Full Stack Developer
+            </p>
 
             <Reveal y={32} delay={0.35} duration={0.9} deferToPreloader>
               <p className="mt-4 max-w-md text-base leading-relaxed text-slategray">
-                I&apos;m a Frontend Engineer crafting clean, responsive, and
-                accessible digital products — turning thoughtful designs into
-                fast, scalable web experiences.
+                I&apos;m a passionate developer crafting robust, scalable
+                digital products — turning thoughtful designs into fast,
+                beautiful web experiences.
               </p>
             </Reveal>
 
@@ -86,12 +50,12 @@ export default function HeroSection() {
           </div>
 
           <Reveal y={20} delay={0.65} duration={0.9} deferToPreloader className="lg:mt-auto">
-            <div className="mt-12 grid grid-cols-2 gap-6 border-t border-lightgray pt-5 lg:mt-0 lg:pb-8">
+            <div className="mt-12 grid max-w-md grid-cols-2 gap-6 border-t border-lightgray pt-5 lg:mt-0 lg:pb-8">
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-slategray">
                   Location
                 </p>
-                <p className="mt-1 text-sm">New York, NY</p>
+                <p className="mt-1 text-sm">Colombo, Sri Lanka</p>
               </div>
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-slategray">
@@ -111,19 +75,20 @@ export default function HeroSection() {
           deferToPreloader
           className="relative lg:flex lg:h-full lg:items-center lg:justify-self-end"
         >
-          <div className="group relative aspect-3/4 w-full max-w-md overflow-hidden bg-lightgray p-5 md:p-7 lg:h-[calc(100dvh-12rem)] lg:w-auto lg:max-w-none">
+          <div className="group relative w-full overflow-hidden bg-none"> {/*bg-lightgray*/}
             <Image
-              src="/Adobe Express - file.png"
-              alt="Portrait of Senuthi Amarasinghe"
-              fill
+              src="/sketchBgremoved3.png"
+              alt="Sketch portrait of Senuthi Amarasinghe"
+              width={947}
+              height={1064}
               sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover grayscale transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0"
+              className="h-auto w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               priority
             />
           </div>
 
           <div className="absolute -bottom-5 left-6 flex size-16 items-center justify-center bg-white shadow-sm">
-            <span className="font-serif text-2xl" aria-hidden="true">
+            <span className="font-redound text-2xl" aria-hidden="true">
               *
             </span>
           </div>
