@@ -101,13 +101,18 @@ export default function EducationSection() {
                 <p className="mt-4 max-w-xl text-base leading-relaxed text-slategray">
                   {item.description}
                 </p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {item.badges.map((badge) => (
+                <div className="mt-6 flex flex-wrap items-baseline gap-x-4 gap-y-3">
+                  {item.badges.map((badge, index) => (
                     <span
                       key={badge}
-                      className="border border-charcoal/20 px-3 py-1 text-xs uppercase tracking-widest"
+                      className="flex items-baseline text-xs uppercase tracking-widest text-slategray"
                     >
                       {badge}
+                      {index < item.badges.length - 1 && (
+                        <span aria-hidden="true" className="ml-4">
+                          ·
+                        </span>
+                      )}
                     </span>
                   ))}
                 </div>
