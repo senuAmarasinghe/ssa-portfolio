@@ -86,12 +86,6 @@ export default function HeroSection() {
               priority
             />
           </div>
-
-          <div className="absolute -bottom-5 left-6 flex size-16 items-center justify-center bg-white shadow-sm">
-            <span className="font-redound text-2xl" aria-hidden="true">
-              *
-            </span>
-          </div>
         </Reveal>
       </div>
     </section>

@@ -1,40 +1,34 @@
 import Image from "next/image";
-import { Counter, LetterReveal, Parallax, Reveal } from "@/components/animations";
+import { LetterReveal, Parallax, Reveal } from "@/components/animations";
 
-export interface Stat {
-  to: number;
-  label: string;
-  suffix?: string;
-  prefix?: string;
-  decimals?: number;
+interface FocusArea {
+  title: string;
+  stack: string;
 }
 
-interface AboutSectionProps {
-  stats: Stat[];
-}
+const focusAreas: FocusArea[] = [
+  { title: "Frontend", stack: "React · Next.js · TypeScript" },
+  { title: "Backend", stack: "Node.js · SpringBoot · REST APIs" },
+  { title: "UI/UX", stack: "Figma · Design Systems · Prototyping" },
+  { title: "Mobile", stack: "Kotlin · Android SDK" },
+];
 
-const learning = ["System Design", "AWS Cloud", "Microservices", "DevOps"];
-
-export default function AboutSection({ stats }: AboutSectionProps) {
+export default function AboutSection() {
   return (
     <section id="about" className="bg-white">
-      <div className="mx-auto w-full max-w-7xl px-6 py-12 md:px-12">
-        <LetterReveal
-          as="h2"
-          stagger={0.04}
-          duration={0.85}
-          delay={0.15}
-          className="font-redound text-[clamp(1.75rem,4vw,4rem)] uppercase leading-[0.95] tracking-tight mb-8"
-        >
-          ABOUT
-        </LetterReveal>
-
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto flex min-h-dvh w-full max-w-7xl flex-col px-6 pb-10 md:px-12 lg:pb-0">
+        <div className="grid flex-1 grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal y={32} delay={0.15}>
-            <div className="space-y-6">
-              <h3 className="font-serif text-2xl leading-snug md:text-3xl">
-                Software Engineering Undergraduate &amp; Full Stack Developer
-              </h3>
+            <div className="space-y-8">
+              <LetterReveal
+                as="h2"
+                stagger={0.04}
+                duration={0.85}
+                delay={0.15}
+                className="font-redound text-[clamp(1.75rem,4vw,4rem)] uppercase leading-[0.95] tracking-tight"
+              >
+                ABOUT
+              </LetterReveal>
               <p className="text-base leading-relaxed text-slategray">
                 I&apos;m a passionate{" "}
                 <strong className="font-medium text-charcoal">
@@ -68,44 +62,25 @@ export default function AboutSection({ stats }: AboutSectionProps) {
             </div>
           </Reveal>
 
-          <div className="flex flex-col gap-12">
-            <Reveal y={32} delay={0.25}>
-              <div className="grid grid-cols-2 gap-10">
-                {stats.map((stat) => (
-                  <div key={stat.label}>
-                    <Counter
-                      to={stat.to}
-                      suffix={stat.suffix}
-                      prefix={stat.prefix}
-                      decimals={stat.decimals}
-                      className="font-anton text-5xl md:text-6xl"
-                    />
-                    <p className="mt-3 text-xs uppercase tracking-[0.2em] text-slategray">
-                      {stat.label}
+          <Reveal y={32} delay={0.25}>
+            <div>
+              <h4 className="text-xs uppercase tracking-[0.2em] text-slategray">
+                Core Focus
+              </h4>
+              <div className="mt-6 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-lightgray pt-6">
+                {focusAreas.map((area) => (
+                  <div key={area.title}>
+                    <h5 className="font-serif text-xl leading-snug md:text-2xl">
+                      {area.title}
+                    </h5>
+                    <p className="mt-2 text-xs uppercase tracking-[0.15em] text-slategray">
+                      {area.stack}
                     </p>
                   </div>
                 ))}
               </div>
-            </Reveal>
-
-            <Reveal y={32} delay={0.35}>
-              <div>
-                <h4 className="text-xs uppercase tracking-[0.2em] text-slategray">
-                  Currently Learning
-                </h4>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  {learning.map((item) => (
-                    <span
-                      key={item}
-                      className="border border-charcoal/20 bg-white px-5 py-3 text-sm uppercase tracking-[0.15em]"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          </div>
+            </div>
+          </Reveal>
         </div>
       </div>
 
