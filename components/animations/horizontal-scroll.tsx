@@ -37,7 +37,7 @@ export default function HorizontalScroll({ className, children }: HorizontalScro
           end: () => `+=${getDistance()}`,
           pin: true,
           scrub: 1,
-          anticipatePin: 1,
+          fastScrollEnd: true,
           invalidateOnRefresh: true,
         },
       });
@@ -46,8 +46,8 @@ export default function HorizontalScroll({ className, children }: HorizontalScro
   );
 
   return (
-    <div ref={sectionRef} className={cn("relative h-screen overflow-hidden", className)}>
-      <div ref={trackRef} className="flex h-full w-max items-center gap-6 px-6 md:px-12">
+    <div ref={sectionRef} className={cn("relative h-dvh overflow-hidden", className)}>
+      <div ref={trackRef} className="flex h-full w-max items-center gap-12 px-6 md:px-12">
         {children}
       </div>
     </div>

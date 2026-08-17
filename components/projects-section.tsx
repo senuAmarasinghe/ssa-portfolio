@@ -77,20 +77,26 @@ const projects: Project[] = [
 export default function ProjectsSection() {
   return (
     <section id="projects" className="bg-[#f8f8f8]">
-      <div className="mx-auto w-full max-w-7xl px-6 pt-24 md:px-12">
+      <div className="mx-auto w-full max-w-7xl px-6 pt-16 md:px-12 md:pt-24">
         <LetterReveal
           as="h2"
           stagger={0.04}
           duration={0.85}
           delay={0.15}
-          className="font-redound text-[clamp(1.75rem,4vw,4rem)] uppercase leading-[0.95] tracking-tight mb-8"
+          className="font-redound text-[clamp(1.75rem,4vw,4rem)] uppercase leading-[0.95] tracking-tight"
         >
           PROJECTS
         </LetterReveal>
         <Reveal y={24} delay={0.2}>
-          <p className="max-w-2xl text-base leading-relaxed text-slategray">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-slategray">
             Selected projects built across web, mobile, and design — from
             enterprise platforms to polished user experiences.
+          </p>
+        </Reveal>
+        <Reveal y={24} delay={0.3}>
+          <p className="mt-10 flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-slategray">
+            <span aria-hidden="true" className="h-px w-10 bg-charcoal" />
+            Scroll <span aria-hidden="true">&rarr;</span>
           </p>
         </Reveal>
       </div>
@@ -102,7 +108,7 @@ export default function ProjectsSection() {
             <Reveal key={project.title} y={40} delay={index * 0.05} className="h-[70vh]">
               <article
                 className={cn(
-                  "relative flex h-full w-[85vw] shrink-0 flex-col justify-between overflow-hidden border border-lightgray p-10 md:w-[60vw] lg:w-[50vw]",
+                  "relative flex h-full w-[85vw] shrink-0 flex-col justify-between overflow-hidden border border-lightgray p-12 md:w-[60vw] md:p-14 lg:w-[50vw]",
                   dark ? "text-white" : "bg-white",
                 )}
                 style={
@@ -140,12 +146,12 @@ export default function ProjectsSection() {
                       {project.status}
                     </span>
                   </div>
-                  <h3 className="mt-6 font-anton text-3xl sm:text-4xl lg:text-5xl">
+                  <h3 className="mt-6 font-redound text-3xl uppercase leading-[0.95] tracking-tight sm:text-4xl lg:text-5xl">
                     {project.title}
                   </h3>
                   <p
                     className={cn(
-                      "mt-2 text-sm uppercase tracking-[0.15em]",
+                      "mt-3 text-sm uppercase tracking-[0.15em]",
                       dark ? "text-white/90" : "text-slategray",
                     )}
                   >
@@ -153,23 +159,28 @@ export default function ProjectsSection() {
                   </p>
                   <p
                     className={cn(
-                      "mt-5 text-sm leading-relaxed",
+                      "mt-6 text-sm leading-relaxed",
                       dark ? "text-white/90" : "text-slategray",
                     )}
                   >
                     {project.description}
                   </p>
                 </div>
-                <div className="relative mt-8 flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
+                <div className="relative mt-8 flex flex-wrap items-baseline gap-x-4 gap-y-3">
+                  {project.tech.map((tech, index) => (
                     <span
                       key={tech}
                       className={cn(
-                        "border px-3 py-1.5 text-xs uppercase tracking-widest",
-                        dark ? "border-white/30" : "border-charcoal/20",
+                        "flex items-baseline text-xs uppercase tracking-widest",
+                        dark ? "text-white/90" : "text-slategray",
                       )}
                     >
                       {tech}
+                      {index < project.tech.length - 1 && (
+                        <span aria-hidden="true" className="ml-4">
+                          ·
+                        </span>
+                      )}
                     </span>
                   ))}
                 </div>
