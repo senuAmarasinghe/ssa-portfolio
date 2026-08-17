@@ -9,9 +9,9 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-hanken-grotesk);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-libre-caslon);
-  --font-display: var(--font-libre-caslon);
-  --font-serif: var(--font-libre-caslon);
+  --font-heading: var(--font-redound);
+  --font-display: var(--font-redound);
+  --font-serif: var(--font-redound);
   --font-redound: var(--font-redound);
   --color-charcoal: #1a1a1a;
   --color-offwhite: #f9f9f7;
