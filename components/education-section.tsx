@@ -1,4 +1,4 @@
-import { Reveal, TextReveal } from "@/components/animations";
+import { LetterReveal, Reveal } from "@/components/animations";
 
 interface Education {
   period: string;
@@ -61,14 +61,15 @@ export default function EducationSection() {
   return (
     <section id="education" className="bg-white">
       <div className="mx-auto w-full max-w-7xl px-6 py-24 md:px-12">
-        <TextReveal
+        <LetterReveal
           as="h2"
-          type="chars"
           stagger={0.04}
-          className="font-anton text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-12"
+          duration={0.85}
+          delay={0.15}
+          className="font-redound text-[clamp(1.75rem,4vw,4rem)] uppercase leading-[0.95] tracking-tight mb-12"
         >
           EDUCATION
-        </TextReveal>
+        </LetterReveal>
 
         <div className="relative max-w-3xl">
           <span

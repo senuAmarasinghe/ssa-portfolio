@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Counter, Parallax, Reveal, TextReveal } from "@/components/animations";
+import { Counter, LetterReveal, Parallax, Reveal } from "@/components/animations";
 
 export interface Stat {
   to: number;
@@ -19,14 +19,15 @@ export default function AboutSection({ stats }: AboutSectionProps) {
   return (
     <section id="about" className="bg-white">
       <div className="mx-auto w-full max-w-7xl px-6 py-12 md:px-12">
-        <TextReveal
+        <LetterReveal
           as="h2"
-          type="chars"
           stagger={0.04}
-          className="font-anton text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-8"
+          duration={0.85}
+          delay={0.15}
+          className="font-redound text-[clamp(1.75rem,4vw,4rem)] uppercase leading-[0.95] tracking-tight mb-8"
         >
           ABOUT
-        </TextReveal>
+        </LetterReveal>
 
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal y={32} delay={0.15}>

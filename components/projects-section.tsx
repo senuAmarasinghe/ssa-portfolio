@@ -1,4 +1,4 @@
-import { HorizontalScroll, Reveal, TextReveal } from "@/components/animations";
+import { HorizontalScroll, LetterReveal, Reveal } from "@/components/animations";
 import { cn } from "@/lib/utils";
 
 interface Project {
@@ -78,14 +78,15 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="bg-[#f8f8f8]">
       <div className="mx-auto w-full max-w-7xl px-6 pt-24 md:px-12">
-        <TextReveal
+        <LetterReveal
           as="h2"
-          type="chars"
           stagger={0.04}
-          className="font-anton text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-8"
+          duration={0.85}
+          delay={0.15}
+          className="font-redound text-[clamp(1.75rem,4vw,4rem)] uppercase leading-[0.95] tracking-tight mb-8"
         >
           PROJECTS
-        </TextReveal>
+        </LetterReveal>
         <Reveal y={24} delay={0.2}>
           <p className="max-w-2xl text-base leading-relaxed text-slategray">
             Selected projects built across web, mobile, and design — from

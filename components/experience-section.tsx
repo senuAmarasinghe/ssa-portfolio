@@ -1,4 +1,4 @@
-import { Reveal, TextReveal } from "@/components/animations";
+import { LetterReveal, Reveal } from "@/components/animations";
 
 interface Experience {
   role: string;
@@ -25,14 +25,15 @@ export default function ExperienceSection() {
   return (
     <section id="experience" className="bg-white">
       <div className="mx-auto w-full max-w-7xl px-6 py-24 md:px-12">
-        <TextReveal
+        <LetterReveal
           as="h2"
-          type="chars"
           stagger={0.06}
-          className="font-anton text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-8"
+          duration={0.85}
+          delay={0.15}
+          className="font-redound text-[clamp(1.75rem,4vw,4rem)] uppercase leading-[0.95] tracking-tight mb-8"
         >
           EXPERIENCE
-        </TextReveal>
+        </LetterReveal>
 
         {experiences.map((item, index) => (
           <Reveal key={item.company} y={24} delay={0.15 + index * 0.1}>

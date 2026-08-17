@@ -1,4 +1,4 @@
-import { Reveal, TextReveal } from "@/components/animations";
+import { LetterReveal, Reveal } from "@/components/animations";
 
 interface ContactLink {
   label: string;
@@ -23,14 +23,15 @@ export default function ContactSection() {
   return (
     <section id="contact" className="bg-charcoal text-offwhite">
       <div className="mx-auto w-full max-w-7xl px-6 py-24 md:px-12">
-        <TextReveal
+        <LetterReveal
           as="h2"
-          type="chars"
           stagger={0.04}
-          className="font-anton text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-8"
+          duration={0.85}
+          delay={0.15}
+          className="font-redound text-[clamp(1.75rem,4vw,4rem)] uppercase leading-[0.95] tracking-tight mb-8"
         >
           CONTACT
-        </TextReveal>
+        </LetterReveal>
 
         <Reveal y={24} delay={0.15}>
           <h3 className="max-w-2xl font-serif text-2xl leading-snug md:text-3xl lg:text-4xl">
