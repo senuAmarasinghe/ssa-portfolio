@@ -73,18 +73,18 @@ export default function ActivitiesSection() {
 
   return (
     <section id="activities" className="bg-[#f8f8f8]">
-      <div className="mx-auto w-full max-w-7xl px-6 pt-24 md:px-12">
+      <div className="mx-auto w-full max-w-7xl px-6 pt-16 md:px-12 md:pt-24">
         <LetterReveal
           as="h2"
           stagger={0.04}
           duration={0.85}
           delay={0.15}
-          className="font-redound text-[clamp(1.75rem,4vw,4rem)] uppercase leading-[0.95] tracking-tight mb-8"
+          className="font-redound text-[clamp(1.75rem,4vw,4rem)] uppercase leading-[0.95] tracking-tight"
         >
-          ACTIVITIES &amp; COMMUNITY
+          ACTIVITIES AND COMMUNITY
         </LetterReveal>
         <Reveal y={24} delay={0.2}>
-          <p className="max-w-2xl text-base leading-relaxed text-slategray">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-slategray">
             Highlights from industry visits, leadership programs, and community
             events — moments that shaped my collaboration, communication, and
             leadership beyond the code.
@@ -92,12 +92,12 @@ export default function ActivitiesSection() {
         </Reveal>
       </div>
 
-      <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-12">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto w-full max-w-7xl px-6 py-20 md:px-12">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((item, index) => (
             <Reveal key={item.title} y={24} delay={index * 0.08}>
-              <div className="h-full border border-lightgray bg-white p-6">
-                <h3 className="font-serif text-lg leading-snug">{item.title}</h3>
+              <div className="h-full border border-lightgray bg-white p-8">
+                <h3 className="font-serif text-xl leading-snug md:text-2xl">{item.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slategray">
                   {item.description}
                 </p>
@@ -106,7 +106,7 @@ export default function ActivitiesSection() {
           ))}
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {activities.map((activity, index) => (
             <Reveal key={activity.src} y={24} delay={(index % 3) * 0.06}>
               <button
@@ -125,9 +125,9 @@ export default function ActivitiesSection() {
                   />
                   <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/20" />
                 </div>
-                <div className="mt-3 flex items-center justify-between gap-4">
+                <div className="mt-4 flex items-center justify-between gap-4">
                   <p className="text-sm font-medium">{activity.title}</p>
-                  <span className="shrink-0 border border-charcoal/20 px-3 py-1 text-xs uppercase tracking-[0.15em] text-slategray">
+                  <span className="shrink-0 text-xs uppercase tracking-[0.15em] text-slategray">
                     {activity.tag}
                   </span>
                 </div>
