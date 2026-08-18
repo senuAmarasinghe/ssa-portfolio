@@ -1,13 +1,10 @@
 import Image from "next/image";
 import { LetterReveal, Reveal } from "@/components/animations";
-import ThemeToggle from "@/components/theme-toggle";
+import SquareToggle from "@/components/square-toggle";
 
 export default function HeroSection() {
   return (
     <section className="relative flex min-h-dvh flex-col bg-offwhite font-sans text-charcoal lg:h-dvh lg:overflow-hidden">
-      <div className="absolute right-6 top-0 z-30 lg:right-12">
-        <ThemeToggle />
-      </div>
       <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-12 px-6 pb-10 md:px-12 lg:grid-cols-[3fr_2fr] lg:gap-16 lg:pb-0">
         <div className="flex flex-col lg:h-full">
           <div className="flex flex-col lg:flex-1 lg:justify-center">
@@ -44,12 +41,15 @@ export default function HeroSection() {
             </Reveal>
 
             <Reveal y={24} delay={0.5} duration={0.9} deferToPreloader>
-              <a
-                href="#projects"
-                className="mt-6 inline-flex w-fit items-center gap-2 border-b border-charcoal pb-1 text-sm uppercase tracking-[0.15em] transition-colors hover:border-slategray hover:text-slategray"
-              >
-                View Selected Work <span aria-hidden="true">&rarr;</span>
-              </a>
+              <div className="mt-6 flex items-center gap-10">
+                <a
+                  href="#projects"
+                  className="inline-flex w-fit items-center gap-2 border-b border-charcoal pb-1 text-sm uppercase tracking-[0.15em] transition-colors hover:border-slategray hover:text-slategray"
+                >
+                  View Selected Work <span aria-hidden="true">&rarr;</span>
+                </a>
+                <SquareToggle />
+              </div>
             </Reveal>
           </div>
 
