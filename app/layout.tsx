@@ -4,7 +4,6 @@ import { Geist, Geist_Mono, Anton, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
-import SideNav from "@/components/side-nav";
 import Preloader from "@/components/preloader";
 
 const redound = localFont({
@@ -59,7 +58,6 @@ export default function RootLayout({
         >
           <SmoothScrollProvider>{children}</SmoothScrollProvider>
         </ThemeProvider>
-        <SideNav />
         <noscript>
           <style>{`.preloader{display:none!important}`}</style>
         </noscript>

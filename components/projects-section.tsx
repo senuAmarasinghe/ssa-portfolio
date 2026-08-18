@@ -105,10 +105,10 @@ export default function ProjectsSection() {
         {projects.map((project, index) => {
           const dark = Boolean(project.image);
           return (
-            <Reveal key={project.title} y={40} delay={index * 0.05} className="h-[70vh]">
+            <Reveal key={project.title} y={40} delay={index * 0.05} className="h-[60vh]">
               <article
                 className={cn(
-                  "relative flex h-full w-[85vw] shrink-0 flex-col justify-between overflow-hidden border border-lightgray p-12 md:w-[60vw] md:p-14 lg:w-[50vw]",
+                  "relative flex h-full w-[72vw] shrink-0 flex-col justify-between overflow-hidden border border-lightgray p-10 md:w-[51vw] md:p-12 lg:w-[43vw]",
                   dark ? "text-white" : "bg-offwhite",
                 )}
                 style={

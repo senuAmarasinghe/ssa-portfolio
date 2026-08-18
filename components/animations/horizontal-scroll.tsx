@@ -26,7 +26,7 @@ export default function HorizontalScroll({ className, children }: HorizontalScro
       const track = trackRef.current;
       if (!section || !track || prefersReducedMotion()) return;
 
-      const getDistance = () => track.scrollWidth - window.innerWidth;
+      const getDistance = () => track.scrollWidth - section.clientWidth;
 
       gsap.to(track, {
         x: () => -getDistance(),
@@ -46,7 +46,10 @@ export default function HorizontalScroll({ className, children }: HorizontalScro
   );
 
   return (
-    <div ref={sectionRef} className={cn("relative h-dvh overflow-hidden", className)}>
+    <div
+      ref={sectionRef}
+      className={cn("relative mx-auto h-dvh w-full max-w-7xl overflow-hidden", className)}
+    >
       <div ref={trackRef} className="flex h-full w-max items-center gap-12 px-6 md:px-12">
         {children}
       </div>
