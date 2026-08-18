@@ -95,6 +95,7 @@ export default function AboutSection() {
               className="object-cover"
             />
           </Parallax>
+          <div aria-hidden className="absolute inset-0 bg-charcoal/60" />
         </div>
       </Reveal>
     </section>
