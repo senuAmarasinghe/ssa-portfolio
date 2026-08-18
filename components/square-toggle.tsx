@@ -16,6 +16,15 @@ export default function SquareToggle() {
 
   const isDark = mounted && resolvedTheme === "dark";
 
+  const switchTheme = () => {
+    document.documentElement.classList.add("theme-transition");
+    setTheme(isDark ? "light" : "dark");
+    window.setTimeout(
+      () => document.documentElement.classList.remove("theme-transition"),
+      1400,
+    );
+  };
+
   return (
     <button
       type="button"
@@ -23,8 +32,8 @@ export default function SquareToggle() {
       aria-checked={isDark}
       aria-label="Toggle dark mode"
       title="Toggle dark mode"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="inline-flex h-7 w-14 items-center border border-charcoal bg-lightgray transition-colors duration-300"
+      onClick={switchTheme}
+      className="inline-flex h-7 w-14 items-center border border-none bg-lightgray transition-colors duration-300"
     >
       <span
         aria-hidden
