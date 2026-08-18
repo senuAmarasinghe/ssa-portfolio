@@ -1,9 +1,13 @@
 import Image from "next/image";
 import { LetterReveal, Reveal } from "@/components/animations";
+import ThemeToggle from "@/components/theme-toggle";
 
 export default function HeroSection() {
   return (
-    <section className="flex min-h-dvh flex-col bg-offwhite font-sans text-charcoal lg:h-dvh lg:overflow-hidden">
+    <section className="relative flex min-h-dvh flex-col bg-offwhite font-sans text-charcoal lg:h-dvh lg:overflow-hidden">
+      <div className="absolute right-6 top-0 z-30 lg:right-12">
+        <ThemeToggle />
+      </div>
       <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-12 px-6 pb-10 md:px-12 lg:grid-cols-[3fr_2fr] lg:gap-16 lg:pb-0">
         <div className="flex flex-col lg:h-full">
           <div className="flex flex-col lg:flex-1 lg:justify-center">

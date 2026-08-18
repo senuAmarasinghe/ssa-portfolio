@@ -15,7 +15,7 @@ const focusAreas: FocusArea[] = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="bg-white">
+    <section id="about" className="bg-offwhite">
       <div className="mx-auto flex min-h-dvh w-full max-w-7xl flex-col px-6 pb-10 md:px-12 lg:pb-0">
         <div className="grid flex-1 grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal y={32} delay={0.15}>

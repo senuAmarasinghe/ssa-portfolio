@@ -59,7 +59,7 @@ const education: Education[] = [
 
 export default function EducationSection() {
   return (
-    <section id="education" className="bg-white">
+    <section id="education" className="bg-offwhite">
       <div className="mx-auto w-full max-w-7xl px-6 py-24 md:px-12">
         <LetterReveal
           as="h2"

@@ -132,15 +132,15 @@ export default function SideNav() {
         >
           <span
             className={cn(
-              "flex size-11 shrink-0 items-center justify-center border bg-white/85 shadow-sm backdrop-blur transition-all duration-300 ease-out",
+              "flex size-11 shrink-0 items-center justify-center border bg-offwhite/85 shadow-sm backdrop-blur transition-all duration-300 ease-out",
               active === id
-                ? "border-charcoal bg-charcoal text-white shadow-lg shadow-charcoal/20"
+                ? "border-charcoal bg-charcoal text-offwhite shadow-lg shadow-charcoal/20"
                 : "border-lightgray text-slategray group-hover:border-charcoal/40 group-hover:text-charcoal",
             )}
           >
             <Icon className="size-4" />
           </span>
-          <span className="pointer-events-none -ml-px max-w-0 overflow-hidden border border-l-0 border-lightgray bg-white/85 shadow-sm backdrop-blur transition-all duration-300 group-hover:max-w-44 group-hover:opacity-100">
+          <span className="pointer-events-none -ml-px max-w-0 overflow-hidden border border-l-0 border-lightgray bg-offwhite/85 shadow-sm backdrop-blur transition-all duration-300 group-hover:max-w-44 group-hover:opacity-100">
             <span
               className={cn(
                 "block whitespace-nowrap px-3 py-2.5 text-xs uppercase tracking-[0.15em] transition-colors duration-300",

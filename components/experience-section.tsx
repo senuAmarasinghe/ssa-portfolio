@@ -23,7 +23,7 @@ const experiences: Experience[] = [
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="flex min-h-dvh flex-col bg-white">
+    <section id="experience" className="flex min-h-dvh flex-col bg-offwhite">
       <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-12 px-6 pb-10 md:px-12 lg:grid-cols-[2fr_3fr] lg:gap-16 lg:pb-0">
         <div>
           <LetterReveal

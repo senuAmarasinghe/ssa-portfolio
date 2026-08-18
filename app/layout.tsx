@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Geist, Geist_Mono, Anton, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import SideNav from "@/components/side-nav";
 import Preloader from "@/components/preloader";
@@ -45,11 +46,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${anton.variable} ${hankenGrotesk.variable} ${redound.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Preloader />
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        </ThemeProvider>
         <SideNav />
         <noscript>
           <style>{`.preloader{display:none!important}`}</style>

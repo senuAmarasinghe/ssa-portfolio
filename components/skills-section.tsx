@@ -43,7 +43,7 @@ const tools = [
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="flex min-h-dvh flex-col bg-[#f8f8f8]">
+    <section id="skills" className="flex min-h-dvh flex-col bg-soft">
       <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-12 px-6 pb-10 md:px-12 lg:grid-cols-[2fr_3fr] lg:gap-16 lg:pb-0">
         <div>
           <LetterReveal

@@ -76,7 +76,7 @@ const projects: Project[] = [
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="bg-[#f8f8f8]">
+    <section id="projects" className="bg-soft">
       <div className="mx-auto w-full max-w-7xl px-6 pt-16 md:px-12 md:pt-24">
         <LetterReveal
           as="h2"
@@ -109,7 +109,7 @@ export default function ProjectsSection() {
               <article
                 className={cn(
                   "relative flex h-full w-[85vw] shrink-0 flex-col justify-between overflow-hidden border border-lightgray p-12 md:w-[60vw] md:p-14 lg:w-[50vw]",
-                  dark ? "text-white" : "bg-white",
+                  dark ? "text-white" : "bg-offwhite",
                 )}
                 style={
                   project.image

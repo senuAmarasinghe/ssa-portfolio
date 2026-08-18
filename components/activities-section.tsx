@@ -72,7 +72,7 @@ export default function ActivitiesSection() {
   const [selected, setSelected] = useState<Activity | null>(null);
 
   return (
-    <section id="activities" className="bg-[#f8f8f8]">
+    <section id="activities" className="bg-soft">
       <div className="mx-auto w-full max-w-7xl px-6 pt-16 md:px-12 md:pt-24">
         <LetterReveal
           as="h2"
@@ -96,7 +96,7 @@ export default function ActivitiesSection() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((item, index) => (
             <Reveal key={item.title} y={24} delay={index * 0.08}>
-              <div className="h-full border border-lightgray bg-white p-8">
+              <div className="h-full border border-lightgray bg-offwhite p-8">
                 <h3 className="font-serif text-xl leading-snug md:text-2xl">{item.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slategray">
                   {item.description}
