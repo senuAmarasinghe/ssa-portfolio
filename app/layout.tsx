@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import Preloader from "@/components/preloader";
+import CustomCursor from "@/components/cursor";
 
 const redound = localFont({
   src: "./fonts/redound-regular.ttf",
@@ -57,6 +58,7 @@ export default function RootLayout({
         >
           <SmoothScrollProvider>{children}</SmoothScrollProvider>
         </ThemeProvider>
+        <CustomCursor />
         <noscript>
           <style>{`.preloader{display:none!important}`}</style>
         </noscript>

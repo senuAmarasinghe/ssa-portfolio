@@ -171,6 +171,13 @@ body {
     box-shadow 0.7s ease !important;
 }
 
+/* Custom following cursor — never show the native cursor on mouse devices */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
 /* Lenis smooth scroll */
 html.lenis,
 html.lenis body {
